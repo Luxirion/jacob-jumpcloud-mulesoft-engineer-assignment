@@ -153,9 +153,34 @@ output application/json
     </flow>
     <flow name="get:\customers:jc-industry-eapi-config">
         <logger level="INFO" message="get:\customers:jc-industry-eapi-config" />
+		<ee:transform doc:name="Transform Message" doc:id="718ec868-0995-447b-992c-0169a1377223" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[{
+  "firstname": "John",
+  "lastname": "Smith",
+  "id": "1234",
+  "address": "4775 Whispering Pines Circle, Dallas, TX 75240"
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
     </flow>
     <flow name="get:\users:jc-industry-eapi-config">
         <logger level="INFO" message="get:\users:jc-industry-eapi-config" />
+		<ee:transform doc:name="Transform Message" doc:id="f3bd2901-9f5e-4ecf-a2d7-299186f09d9c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[{
+  "username": "testuser",
+  "id": "1234",
+  "name": "John Smith"
+}]]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
     </flow>
     <flow name="post:\customers:application\json:jc-industry-eapi-config">
         <logger level="INFO" message="post:\customers:application\json:jc-industry-eapi-config" />
