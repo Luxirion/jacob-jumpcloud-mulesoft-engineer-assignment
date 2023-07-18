@@ -1,0 +1,9 @@
+# HTTP Listener Properties
+http:
+  port: "8081"
+  path: "/api/*"
+  console: "/console/*"
+  
+# Autodiscovery
+api:
+  id: "18829419"

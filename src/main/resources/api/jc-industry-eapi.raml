@@ -1,0 +1,29 @@
+#%RAML 1.0
+title: jc-industry-eapi
+version: 1.0
+description: Experience API for JumpCloud definition for MuleSoft Engineer Homework Assignment.
+
+types:
+  User: !include DataTypes/user.raml
+  Customer: !include DataTypes/customer.raml
+
+resourceTypes:
+  collection: !include ResourceTypes/collection.raml
+  item: !include ResourceTypes/item.raml
+
+traits:
+  client-id-required: !include Traits/client-id-enforcement.raml
+
+/users:
+  type: collection
+  is: [client-id-required]
+  /{id}:
+    type: item
+    is: [client-id-required]
+
+/customers:
+  type: collection
+  is: [client-id-required]
+  /{id}:
+    type: item
+    is: [client-id-required]

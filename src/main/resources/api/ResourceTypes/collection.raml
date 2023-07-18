@@ -1,0 +1,19 @@
+#%RAML 1.0 ResourceType
+
+get:
+  displayName: Retrieve <<resourcePathName>>.
+  description: Returns a list of <<resourcePathName>>.
+  responses:
+    200:
+      body:
+        application/json:
+          type: User[] | Customer[]
+post:
+  body:
+    application/json:
+      type: User | Customer
+  responses:
+    201:
+      body:
+        application/json:
+          type: User | Customer
